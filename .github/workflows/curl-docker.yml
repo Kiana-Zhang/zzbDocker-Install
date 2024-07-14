@@ -8,11 +8,12 @@ on:
 permissionis:
   contents: write
   jobs:
-    runs-on: ubuntu-latest
-    steps:
-      uses: actions/checkout@v4
-      run: curl -o docker-ins.sh "https://get.docker.com"
-      uses: softprops/action-gh-release@v2
-      with:
-        files: docker-ins.sh
-        tag_name: v1.0.0
+    download_installer:
+      runs-on: ubuntu-latest
+      steps:
+        uses: actions/checkout@v4
+        run: curl -o docker-ins.sh "https://get.docker.com"
+        uses: softprops/action-gh-release@v2
+        with:
+          files: docker-ins.sh
+          tag_name: v1.0.0
