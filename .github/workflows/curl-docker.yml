@@ -10,15 +10,12 @@ permissions:
   
 jobs:  
   download_docker_installer:  
-    runs-on: ubuntu-latest  # 建议使用 ubuntu-latest 而不是 debian-latest，因为 Actions 官方镜像通常是基于 Ubuntu 的  
+    runs-on: ubuntu-latest   
     steps:  
-      - name: Checkout repository  
         uses: actions/checkout@v4  
   
-      - name: Download Docker Installer  
-        run: curl -o docker-ins.sh https://get.docker.com  
+        run: curl -o docker-ins.sh "https://get.docker.com"
   
-      - name: Create Release  
         uses: softprops/action-gh-release@v2  
         with:  
           files: docker-ins.sh  
